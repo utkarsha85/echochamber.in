@@ -1,0 +1,581 @@
+/* Base Styling */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.day {
+    background: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg') no-repeat center center fixed;
+    background-size: cover;
+   
+}
+
+body.night {
+    background: url('https://images.pexels.com/photos/2885320/pexels-photo-2885320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Day/Night Switcher */
+/* Switch Container */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+/* Hide the default checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider Styling */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+/* Slider before state */
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+/* When the checkbox is checked, move the slider to the right */
+input:checked + .slider {
+    background-color: #4CAF50; /* Green background for ON state */
+}
+
+/* Slider moves to the right */
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Additional styling for day and night themes */
+body.day {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+body.night {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+/* Container Styling */
+.container {
+    background: rgba(255, 255, 255, 0.034);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 90%;
+    max-width: 650px;
+    text-align: center;
+    animation: fadeIn 1s ease-out;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Recording Animation Styling */
+.recording-animation {
+    display: none; /* Hidden by default */
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(0, 123, 255, 0.5);
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    margin: 20px auto;
+    animation: spin 5s linear infinite;
+}
+
+/* Timer Styling */
+.timer {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #0e83e3;
+}
+
+/* Features Background Styling */
+.features-background {
+    background: url('https://www.example.com/path-to-anime-background.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Header Styling */
+h1 {
+    color: #222;
+    margin-bottom: 25px;
+    font-family: 'Dancing script', Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    animation: textPopUp 0.6s ease-out;
+}
+
+/* Button Styling */
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    margin: 5px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    pointer-events: none;
+}
+
+.btn:hover:before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.primary {
+    background-color: #007bff;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.6);
+}
+
+.secondary {
+    background-color: #6c757d;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(108, 117, 125, 0.4);
+}
+
+.secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(108, 117, 125, 0.6);
+}
+
+.feature-btn {
+    background-color: #28a745;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(40, 167, 69, 0.4);
+}
+
+.feature-btn:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(40, 167, 69, 0.6);
+}
+
+/* Audio Player Styling */
+.audio-player {
+    margin-top: 25px;
+}
+
+audio {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+audio:hover {
+    border-color: #00eaff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes backgroundFade {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(0.7);
+    }
+}
+
+@keyframes textPopUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Existing CSS remains the same */
+
+/* Private Folder Styling */
+#private-folder-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+#private-folder-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#private-folder-list li:last-child {
+    border-bottom: none;
+}
+
+#file-upload {
+    margin-bottom: 10px;
+}
+
+
+/* General Modal Styling */
+#login-modal, #register-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Dark overlay without blur */
+}
+
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    color: #fff;
+    overflow: hidden;
+    transform: scale(0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    
+}
+
+#login-modal.active .modal-content, 
+#register-modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Background Styling */
+.modal-content {
+    background-image: url('https://images.pexels.com/photos/167699/pexels-photo-167699.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+}
+
+/* Headings */
+.modal-content h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideDown 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideDown {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Form Label Styling */
+.modal-content label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Input Fields */
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    animation: slideUp 0.7s ease forwards;
+    opacity: 0;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content input:focus {
+    box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Buttons */
+.modal-content button {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: rgba(0, 123, 255, 0.9);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+.modal-content button:hover {
+    background-color: rgba(0, 86, 179, 0.9);
+    box-shadow: 0 12px 24px rgba(0, 86, 179, 0.6);
+}
+
+.modal-content button:active {
+    transform: translateY(2px);
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 2;
+}
+
+.close:hover, .close:focus {
+    color: #ff5e57;
+}
+
+/* Keyframe Animations for Modals */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes modalFadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+}
+/* Login Modal Styling */
+#login-modal .modal-content {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 500px;
+    color: #fff;
+    overflow: hidden;
+    transform: scale(0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+#login-modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Sliding Message Styling */
+.login-message {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffbb33;
+    font-weight: bold;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+#login-modal.active .login-message {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Keyframe Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+

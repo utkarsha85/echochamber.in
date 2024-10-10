@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo Chamber</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Echo Chamber</h1>
+        <div class="controls">
+            <button id="record" class="btn primary">Record</button>
+            <button id="stop" class="btn secondary" disabled>Stop</button>
+            <button id="play" class="btn secondary" disabled>Play</button>
+            <button id="save" class="btn primary" disabled>Save</button>
+        </div>
+        
+        <div id="recording-animation" class="recording-animation"></div>
+        <div id="timer" class="timer">00:00</div>
+        <div class="audio-player">
+            <audio id="audio" controls></audio>
+        </div>
+        <div class="features-background features">
+            <h2>Features</h2>
+            <button id="list-recordings" class="btn feature-btn">List Recordings</button>
+            <button id="set-reminder" class="btn feature-btn">Set Reminder</button>
+            <button id="private-folder" class="btn feature-btn">Private Folder</button>
+        </div>
+
+        <!-- Day/Night Switch -->
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+        
+        <!-- Login and Register Buttons -->
+        <div class="auth-buttons">
+            <button id="login-btn" class="btn primary">Login</button>
+            <button id="register-btn" class="btn secondary">Register</button>
+        </div>
+    </div>
+
+    <!-- List Recordings Modal -->
+    <div id="list-recordings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="list-recordings-close">&times;</span>
+            <h2>Recordings List</h2>
+            <ul id="recordings-list"></ul>
+        </div>
+    </div>
+
+    <!-- Set Reminder Modal -->
+    <div id="set-reminder-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="set-reminder-close">&times;</span>
+            <h2>Set Reminder</h2>
+            <form id="reminder-form">
+                <label for="reminder-date">Date:</label>
+                <input type="date" id="reminder-date" required>
+                <label for="reminder-time">Time:</label>
+                <input type="time" id="reminder-time" required>
+                <button type="submit" class="btn primary">Set Reminder</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Private Folder Modal -->
+    <div id="private-folder-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="private-folder-close">&times;</span>
+            <h2>Private Folder</h2>
+            <form id="upload-form">
+                <label for="file-upload">Upload Audio File:</label>
+                <input type="file" id="file-upload" accept="audio/*">
+                <button type="submit" class="btn primary">Upload</button>
+            </form>
+            <ul id="private-folder-list"></ul>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="login-close">&times;</span>
+            <h2>Login</h2>
+            <div id="login-message" class="login-message">Old Customer</div>
+            <label for="login-username">Username:</label>
+            <input type="text" id="login-username" required>
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" required>
+            <button class="btn primary">Login</button>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="register-close">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" required>
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" required>
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" required>
+                <button type="submit" class="btn primary">Register</button>
+            </form>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
